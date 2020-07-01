@@ -21,4 +21,9 @@ push:
 
 .PHONY: run
 run:   ## Deploy Celery to beta.
-	FLASK_APP=main flask run
+	FLASK_APP=main flask run --host 0.0.0.0 --port 5000
+
+.PHONY: runcontainer
+runcontainer:   ## Deploy Celery to beta.
+	# docker run -it --expose 5000  ${REGISTRY_NAME}:${TAG}
+	docker run --name helloworldwebserver -p 127.0.0.1:5000:5000 -it ${REGISTRY_NAME}:${TAG}
