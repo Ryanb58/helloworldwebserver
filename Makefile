@@ -16,6 +16,8 @@ build:   ## Deploy Celery to beta.
 tag:
 	docker tag ${REGISTRY_NAME}:${TAG} ${REGISTRY_NAME}:${TAG}
 
+push:
+	docker push ${REGISTRY_NAME}:${TAG}
 
 .PHONY: run
 run:   ## Deploy Celery to beta.
